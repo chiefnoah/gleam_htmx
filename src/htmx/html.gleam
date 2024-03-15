@@ -23,6 +23,15 @@ pub fn a(
   |> tag("a")(body)
 }
 
+pub fn p(
+  attrs attrs: Attrs,
+  body body: fn() -> StringBuilder,
+) -> StringBuilder {
+  attrs
+  |> dict.from_list()
+  |> tag("p")(body)
+}
+
 pub fn html(
   lang lang: String,
   attrs attrs: Attrs,
@@ -57,6 +66,10 @@ pub fn body(
   )
 }
 
+pub fn emptybody() -> StringBuilder {
+  string_builder.new()
+}
+
 pub fn text(c: String) -> fn() -> StringBuilder {
   fn() { string_builder.from_string(c) }
 }
@@ -71,6 +84,19 @@ pub fn ul(body body: fn() -> StringBuilder) -> StringBuilder {
 
 pub fn li(body body: fn() -> StringBuilder) -> StringBuilder {
   tag("li")(dict.new(), body)
+}
+
+pub fn script(
+  src src: String,
+  attrs attrs: Attrs,
+  body body: fn() -> StringBuilder,
+) -> StringBuilder {
+  tag("script")(
+    attrs
+      |> dict.from_list()
+      |> dict.insert("src", src),
+    body,
+  )
 }
 
 /// `elements` joins multiple elements together at the same nesting level.
