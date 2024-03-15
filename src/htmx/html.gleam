@@ -25,11 +25,11 @@ pub fn a(
 
 pub fn p(
   attrs attrs: Attrs,
-  body body: fn() -> StringBuilder,
+  body body: String,
 ) -> StringBuilder {
   attrs
   |> dict.from_list()
-  |> tag("p")(body)
+  |> tag("p")(text(body))
 }
 
 pub fn html(

@@ -19,7 +19,7 @@ fn home_template() -> StringBuilder {
   }
   |> html.append(fn() {
     use <- html.body([])
-    html.p([], html.text("Hello, world"))
+    html.p([], "Hello, world")
   })
 
 }
