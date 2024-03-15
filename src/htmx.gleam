@@ -7,7 +7,7 @@ import gleam/bytes_builder.{type BytesBuilder}
 import gleam/io
 
 fn htmx_dep() -> StringBuilder {
-    html.script("https://unpkg.com/htmx.org@1.9.10", [], html.emptybody)
+  html.script("https://unpkg.com/htmx.org@1.9.10", [], html.emptybody)
 }
 
 fn home_template() -> StringBuilder {
@@ -21,7 +21,6 @@ fn home_template() -> StringBuilder {
     use <- html.body([])
     html.p([], "Hello, world")
   })
-
 }
 
 fn service(req: Request(t)) -> Response(BytesBuilder) {

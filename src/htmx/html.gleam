@@ -23,10 +23,7 @@ pub fn a(
   |> tag("a")(body)
 }
 
-pub fn p(
-  attrs attrs: Attrs,
-  body body: String,
-) -> StringBuilder {
+pub fn p(attrs attrs: Attrs, body body: String) -> StringBuilder {
   attrs
   |> dict.from_list()
   |> tag("p")(text(body))
